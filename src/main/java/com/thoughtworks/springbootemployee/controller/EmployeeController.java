@@ -36,7 +36,7 @@ public class EmployeeController {
         return employee;
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public Employee deleteEmployee(@PathVariable int id) {
         return new Employee(id, "Xiaoxia", 15, "Female");
     }
