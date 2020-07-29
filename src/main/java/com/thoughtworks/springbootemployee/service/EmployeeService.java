@@ -30,6 +30,10 @@ public class EmployeeService {
     }
 
     public boolean deleteEmployeeById(int id) {
-        return false;
+        return employeeRepository.deleteEmployeeById(id);
+    }
+
+    public List<Employee> getEmployeesByGender(String gender) {
+        return null;
     }
 }

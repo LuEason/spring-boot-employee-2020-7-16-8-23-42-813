@@ -88,4 +88,19 @@ public class EmployeeServiceTest {
         assertTrue(isDelete);
         assertEquals(beforeDeleteEmployeesLength - 1, afterDeleteEmployeesLength);
     }
+
+    @Test
+    void should_return_only_male_employee_list_when_get_employees_given_gender_is_male() {
+        //given
+        String gender = "Male";
+
+        //when
+        List<Employee> maleEmployees = employeeService.getEmployeesByGender(gender);
+
+        //then
+        assertEquals(0, maleEmployees.stream().filter(employee -> employee.getGender().equals("Female")).count());
+        assertEquals(3, maleEmployees.stream().filter(employee -> employee.getGender().equals("Male")).count());
+
+
+    }
 }
