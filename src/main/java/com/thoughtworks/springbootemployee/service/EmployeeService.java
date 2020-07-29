@@ -38,6 +38,6 @@ public class EmployeeService {
     }
 
     public List<Employee> getEmployeesPagination(int page, int pageSize) {
-        return null;
+        return employeeRepository.getEmployeesPagination(page, pageSize);
     }
 }

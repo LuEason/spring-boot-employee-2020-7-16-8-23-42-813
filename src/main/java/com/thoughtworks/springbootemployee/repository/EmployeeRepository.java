@@ -52,4 +52,8 @@ public class EmployeeRepository {
     public List<Employee> getEmployeesByGender(String gender) {
         return employees.stream().filter(employee -> employee.getGender().equals(gender)).collect(Collectors.toList());
     }
+
+    public List<Employee> getEmployeesPagination(int page, int pageSize) {
+        return employees.stream().skip((page - 1) * pageSize).limit(pageSize).collect(Collectors.toList());
+    }
 }
