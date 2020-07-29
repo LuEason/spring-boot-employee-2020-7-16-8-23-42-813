@@ -43,4 +43,8 @@ public class EmployeeRepository {
         nextId++;
         return insertedEmployee;
     }
+
+    public boolean deleteEmployeeById(int id) {
+        return employees.remove(getEmployeeById(id));
+    }
 }
