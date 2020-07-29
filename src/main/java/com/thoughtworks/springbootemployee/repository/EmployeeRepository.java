@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public class EmployeeRepository {
     private final List<Employee> employees = generateEmployees();
+    private int nextId = 5;
 
     private List<Employee> generateEmployees() {
         List<Employee> employees = new ArrayList<>();
@@ -35,5 +36,11 @@ public class EmployeeRepository {
         employee.setGender(targetEmployee.getGender());
         employee.setSalary(targetEmployee.getSalary());
         return employee;
+    }
+
+    public Employee insertEmployee(Employee newEmployee) {
+        Employee insertedEmployee = new Employee(nextId, newEmployee.getName(), newEmployee.getAge(), newEmployee.getGender(), newEmployee.getSalary());
+        nextId++;
+        return insertedEmployee;
     }
 }
