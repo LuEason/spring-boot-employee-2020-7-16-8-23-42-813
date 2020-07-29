@@ -57,4 +57,19 @@ public class EmployeeServiceTest {
         assertEquals(targetEmployee.getName(), updatedEmployee.getName());
         assertEquals(targetEmployee.getSalary(), updatedEmployee.getSalary());
     }
+
+    @Test
+    void should_return_added_employee_when_add_employee_given_a_new_employee() {
+        //given
+        Employee newEmployee = new Employee(-1, "Xiaohei", 15, "Female", 8000);
+
+        //when
+        Employee returnEmployee = employeeService.addEmployee(newEmployee);
+
+        //then
+        assertEquals(newEmployee.getAge(), returnEmployee.getAge());
+        assertEquals(newEmployee.getGender(), returnEmployee.getGender());
+        assertEquals(newEmployee.getName(), returnEmployee.getName());
+        assertEquals(newEmployee.getSalary(), returnEmployee.getSalary());
+    }
 }
