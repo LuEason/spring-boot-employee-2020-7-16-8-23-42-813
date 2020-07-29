@@ -40,4 +40,21 @@ public class EmployeeServiceTest {
         //then
         assertEquals(id, employee.getId());
     }
+
+    @Test
+    void should_return_updated_employee_when_update_employee_give_employee_id_and_target_employee() {
+        //given
+        int id = 1;
+        Employee targetEmployee = new Employee(1, "Xiaohong1", 20, "Male", 9000);
+
+        //when
+        Employee updatedEmployee = employeeService.updateEmployee(id, targetEmployee);
+
+        //then
+        assertEquals(targetEmployee.getId(), updatedEmployee.getId());
+        assertEquals(targetEmployee.getAge(), updatedEmployee.getAge());
+        assertEquals(targetEmployee.getGender(), updatedEmployee.getGender());
+        assertEquals(targetEmployee.getName(), updatedEmployee.getName());
+        assertEquals(targetEmployee.getSalary(), updatedEmployee.getSalary());
+    }
 }
