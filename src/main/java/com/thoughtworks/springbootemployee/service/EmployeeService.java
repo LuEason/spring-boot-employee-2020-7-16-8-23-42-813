@@ -20,4 +20,8 @@ public class EmployeeService {
     public Employee getEmployeeById(int id) {
         return employeeRepository.getEmployeeById(id);
     }
+
+    public Employee updateEmployee(int id, Employee targetEmployee) {
+        return null;
+    }
 }
