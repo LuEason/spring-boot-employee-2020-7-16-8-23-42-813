@@ -28,4 +28,7 @@ public class EmployeeService {
     public Employee addEmployee(Employee newEmployee) {
         return employeeRepository.insertEmployee(newEmployee);
     }
+
+    public void deleteEmployeeById(int id) {
+    }
 }

@@ -72,4 +72,18 @@ public class EmployeeServiceTest {
         assertEquals(newEmployee.getName(), returnEmployee.getName());
         assertEquals(newEmployee.getSalary(), returnEmployee.getSalary());
     }
+
+    @Test
+    void should_return_boolean_when_delete_employee_given_id() {
+        //given
+        int id = 3;
+        int beforeDeleteEmployeesLength = employeeService.getAllEmployees().size();
+
+        //when
+        employeeService.deleteEmployeeById(id);
+        int afterDeleteEmployeesLength = employeeService.getAllEmployees().size();
+
+        //then
+        assertEquals(beforeDeleteEmployeesLength - 1, afterDeleteEmployeesLength);
+    }
 }
