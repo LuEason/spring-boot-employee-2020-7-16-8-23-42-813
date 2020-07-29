@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EmployeeServiceTest {
     private EmployeeService employeeService;
@@ -80,10 +81,11 @@ public class EmployeeServiceTest {
         int beforeDeleteEmployeesLength = employeeService.getAllEmployees().size();
 
         //when
-        employeeService.deleteEmployeeById(id);
+        boolean isDelete = employeeService.deleteEmployeeById(id);
         int afterDeleteEmployeesLength = employeeService.getAllEmployees().size();
 
         //then
+        assertTrue(isDelete);
         assertEquals(beforeDeleteEmployeesLength - 1, afterDeleteEmployeesLength);
     }
 }
