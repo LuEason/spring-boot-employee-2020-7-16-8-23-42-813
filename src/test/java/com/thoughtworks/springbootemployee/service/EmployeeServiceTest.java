@@ -100,7 +100,19 @@ public class EmployeeServiceTest {
         //then
         assertEquals(0, maleEmployees.stream().filter(employee -> employee.getGender().equals("Female")).count());
         assertEquals(3, maleEmployees.stream().filter(employee -> employee.getGender().equals("Male")).count());
+    }
 
+    @Test
+    void should_return_employees_in_the_specified_range_when_get_employees_given_page_2_and_page_size_2() {
+        //given
+        int page = 2;
+        int pageSize = 2;
 
+        //when
+        List<Employee> employees = employeeService.getEmployeesPagination(page, pageSize);
+
+        //then
+        assertEquals(2, employees.get(0).getId());
+        assertEquals(3, employees.get(1).getId());
     }
 }
